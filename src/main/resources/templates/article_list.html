@@ -1,3 +1,4 @@
+<html layout:decorate="~{layout}">
 <table>
     <thead>
     <tr>
@@ -7,7 +8,10 @@
     </thead>
     <tbody>
     <tr th:each="article : ${articleList}">
-        <td th:text="${article.title}"></td>
+        <td>
+            <a th:href="@{|/article/detail/${article.id}|}" th:text="${article.title}"></a>
+        </td>
+
         <td th:text="${article.createDate}"></td>
     </tr>
     </tbody>
@@ -20,3 +24,4 @@
 
 
 </table>
+<a th:href="@{/article/create}" class="btn btn-primary">article 등록하기</a>
